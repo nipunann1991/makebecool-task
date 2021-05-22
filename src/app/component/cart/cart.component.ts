@@ -15,4 +15,8 @@ export class CartComponent implements OnInit {
 
   }
 
+  closeCart(){
+    this.cartData.openCart = !this.cartData.openCart;
+  }
+
 }

@@ -13,7 +13,7 @@ export class ProductPageComponent implements OnInit {
   }
 
   cartData: any = {
-    openCart: false,
+    openCart: true,
     cartItems: 10
   }
  
