@@ -1,0 +1,128 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+
+@mixin parent($context) {
+  #{$context} & {
+    @content;
+  }
+}
+
+@mixin clearfix() {
+  *zoom: 1;
+    &:before, &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    font-size: 0;
+    clear: both;
+    visibility: hidden;
+  }
+  
+}
+
+@mixin no-underline() { 
+    &:link, &:visited, &:hover, &:active { 
+        text-decoration: none;
+    }
+}
+
+@mixin box { 
+    -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+    box-sizing: border-box; 
+}
+
+@mixin breakpoint($context) { 
+    @media screen and (min-width: $context) { 
+        @content;
+    }
+}
+
+@mixin breakpointMax($context) { 
+    @media screen and (max-width: $context) { 
+        @content;
+    }
+}
+
+@mixin flex-column() {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+
+@mixin flex() {
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+} 
+ 
+@mixin background-opacity($color, $opacity: 1) {
+    background: $color; /* The Fallback */
+    background: rgba($color, $opacity);
+}
+
+@mixin transition-delay($delay) {
+  -moz-transition-delay: $delay;
+  -o-transition-delay: $delay;
+  -webkit-transition-delay: $delay;
+  transition-delay: $delay;
+}
+
+
+@mixin transition($transition) {
+    -moz-transition: $transition;
+    -o-transition: $transition;
+    -webkit-transition: $transition;
+    transition: $transition;
+}
+
+
+@mixin calc($key, $value) {
+    #{$key}: -webkit-calc(#{$value});
+    #{$key}: -moz-calc(#{$value});
+    #{$key}: calc(#{$value});
+}
+
+
+@mixin cols($val) {
+  flex: 0 0 auto;
+  width: 100%;
+  flex-direction: row;
+  
+  @include breakpoint($tablet){ 
+      @include calc("width", (100 /12) * $val + "%");
+      flex-direction: column;
+  };
+}
+
+@mixin bg-image($image, $bg-position : 50% 50% ){
+  background-image: url('/assets/images/'+$image);
+  background-repeat: no-repeat;
+  background-position: $bg-position;
+}
+
+@mixin box-shadow($top, $right, $bottom, $left, $color, $inset: false) {
+    @if $inset {
+        -webkit-box-shadow: inset $top $right $bottom $left $color;
+        -moz-box-shadow: inset $top $right $bottom $left $color;
+        box-shadow: inset $top $right $bottom $left $color;
+    }
+    @else {
+        -webkit-box-shadow: $top $right $bottom $left $color;
+        -moz-box-shadow: $top $right $bottom $left $color;
+        box-shadow: $top $right $bottom $left $color;
+    }
+}
+
+
+@mixin animate-delay($no-of-items, $delay) {
+    @for $i from 1 through $no-of-items {
+        &:nth-of-type(#{$i}) {
+            animation-delay: $i * $delay;
+        }
+    }
+}
+

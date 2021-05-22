@@ -1,0 +1,32 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+ 
+ 
+/// Main brand colours
+$base-color: #202020;
+$base-red: #CC0000;
+$white: #ffffff;
+ 
+/// Code (monospace) font sizes
+$base-font-size: 1.6rem;
+ 
+/// Breakpoints
+/// using https://github.com/at-import/breakpoint
+/// Documentation: https://github.com/at-import/breakpoint/wiki
+
+$small-device: 320px; 
+$medium-device: 480px; 
+$tablet: 768px;
+$tablet-medium: 992px;
+$x-small-desktop: 1024px;
+$small-desktop: 1280px;
+$medium-desktop: 1440px;
+$large-desktop: 1600px; 
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'http://cdn.example.com/assets/';
+$base-url: '../' !default;
+

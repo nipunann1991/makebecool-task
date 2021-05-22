@@ -1,0 +1,176 @@
+@import "/src/styles.scss";
+
+.header{ 
+    $self: &;   
+    @include breakpoint($tablet){ 
+        margin-bottom: 1.5rem;
+    } 
+
+    &--centered{
+        @include flex();
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+         
+        @include breakpoint($tablet){ 
+            border-bottom: 1px solid rgba(32, 32, 32, 0.05);
+        } 
+
+        #{ $self }--mobile-nav{
+            display: block;
+
+            @include breakpoint($tablet){ 
+                display: none;
+            } 
+        }
+
+        #{ $self }--logo{
+            width: 17rem;
+            margin: auto;
+
+            img{
+                width: 100%;
+            }
+
+            @include breakpoint($tablet){ 
+                width: 20rem;
+                margin: 0;
+            } 
+
+            @include breakpoint($tablet-medium){ 
+                width: auto;
+                margin: 0;
+            } 
+        }
+ 
+        #{ $self }--nav-area{
+            @include flex(); 
+
+            @include breakpoint($tablet){ 
+                margin-left: auto;
+            }
+             
+            .nav{  
+                &--list{
+                    @include flex();
+                    margin: 0;
+
+                    &.menu{ 
+                        display: block;
+                        position: absolute;
+                        width: 100%;
+                        left: 0;
+                        background: #ffffff;
+                        z-index: 0;
+                        top: 7.8rem;
+                        opacity: 0;
+                        
+                        &.opened{
+                            opacity: 1;
+                            z-index: 100;
+                            transition: all 0.2s linear;
+                        }
+
+
+                        @include breakpoint($tablet){ 
+                            opacity: 1;
+                            z-index: 10;
+                            transition: 0s;
+                        }
+
+
+                        li{
+                            padding: 0.5rem 1.5rem;
+                            margin-right: 0;
+
+                            @include breakpoint($tablet){ 
+                                padding: 0;
+                                margin-right: 3.2rem;
+                            }
+
+                            &:hover{
+                                @include background-opacity($base-color, 0.05);
+                            } 
+
+                        }
+
+                        @include breakpoint($tablet){ 
+                            position: relative; 
+                            top: 0;
+                            @include flex();
+                        };
+                        
+                    }
+
+                    &.search-n-cart{
+                       
+                        @include breakpoint($tablet){  
+                            margin-left: 4rem;
+                        };
+                    }
+
+                    
+                    li{
+                        list-style: none;
+                        margin-right: 3.2rem;
+                        color: $base-color;
+                        position: relative;
+
+                        &.sale{
+                            color: $base-red; 
+                            text-transform: uppercase;
+                            margin-right: 4rem;
+                        }
+
+                        &.search{
+                            margin-right: 2rem;
+                            display: none;
+
+                            @include breakpoint($tablet){  
+                                display: block;
+                            };
+                        }
+
+                        &.cart{
+
+                            span.cart{
+
+                                &--badge{
+                                    background: $base-red;
+                                    font-size: 0.9rem;
+                                    color: $white;
+                                    width: 1.5rem;
+                                    height: 1.5rem;
+                                    border-radius: 50%;
+                                    display: block;
+                                    @include flex();
+                                    align-items: center;
+                                    justify-content: center;
+                                    position: absolute;
+                                    right: -7px;
+                                    top: -5px;
+                                }
+
+                            }
+                            
+                        }
+
+                        &:last-child{
+                            margin-right: 0;
+                        }
+
+                        a{ 
+                            color: inherit;
+                            text-decoration: none;
+                            font-weight: 700;
+
+                            img{
+                                width: 2.4rem;
+                            }
+                        }
+                    }
+                }
+            }
+       }
+    }
+   
+}

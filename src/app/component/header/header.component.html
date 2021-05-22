@@ -1,0 +1,35 @@
+<div class="header container-fluid">
+    <div class="header--centered container">
+
+        <div class="header--mobile-nav">
+            <a (click)="toggleNav()" href="javascript:void(0)" ><img src="/assets/images/svg/hamburg.svg" alt=""></a>
+        </div>
+
+        <div class="header--logo">
+            <a routerLink="/"><img src="/assets/images/logo.png" alt=""></a>
+        </div>
+
+        <div class="header--nav-area">
+            <ul class="nav--list menu" [ngClass]="{'opened': openMenu}">
+                <li><a routerLink="/">Vikings</a></li>
+                <li><a routerLink="/">Ancient Egypt</a></li>
+                <li><a routerLink="/">Celtics</a></li>
+                <li class="sale"><a routerLink="/">Sale</a></li> 
+            </ul>
+            <ul class="nav--list search-n-cart">
+                <li class="search">
+                    <a routerLink="/">
+                        <img src="/assets/images/svg/search.svg" alt="">
+                    </a>
+                </li>
+                <li class="cart">
+                    <a routerLink="/">
+                        <span class="cart--badge">0</span>
+                        <img src="/assets/images/svg/shopping.svg" alt="">
+                    </a>
+                </li> 
+            </ul>
+        </div>
+
+    </div>
+</div>
