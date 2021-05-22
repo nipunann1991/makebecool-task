@@ -32,22 +32,20 @@
                             <div class="product--length">
                                 <p>Choose your length</p>
                                 <select class="product--select-option form-select">
-                                    <option selected>60 CM (24 INCHES)</option> 
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <option selected>60 CM (24 INCHES)</option>  
                                 </select>
                             </div>
                             <div class="product--price-tag">
-                                <span class="price">$19.95</span>
+                                <span class="price"> {{getPrice() | currency}} </span>
                                 <span class="tax">Tax included</span>
                             </div> 
                             <div class="product--add-to-cart">
                                 <ul class="product--count">
-                                    <li> - </li>
-                                    <li class="item-qty"><input type="number" value="1" class="form-control qty"></li>
-                                    <li> + </li>
+                                    <li (click)="removeItem()"> - </li>
+                                    <li class="item-qty"><input type="number" [(ngModel)]="product.quantity" (ngModelChange)="onChange($event)" class="form-control qty"></li>
+                                    <li (click)="addItem()"> + </li>
                                 </ul>
-                                <button class="btn add-to-cart">Add To Cart</button>
+                                <button class="btn add-to-cart" (click)="addToCart()">Add To Cart</button>
                             </div> 
                         </div>
                         <div class="product--description">

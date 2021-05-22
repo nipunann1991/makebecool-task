@@ -7,6 +7,7 @@ import { ProductPageComponent } from './pages/product-page/product-page.componen
 import { HeaderComponent } from './component/header/header.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { CartComponent } from './component/cart/cart.component'; 
+import { FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CartComponent } from './component/cart/cart.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

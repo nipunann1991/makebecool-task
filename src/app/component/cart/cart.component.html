@@ -6,24 +6,21 @@
             <img src="/assets/images/svg/close.svg" alt="">
         </a>  
     </div>
-    <div class="cart--body">
-         
-        <ul class="cart--list">
-            <li class="cart--list-item">
-                <div class="cart--list-item-image">
-
-                </div>
+    <div class="cart--body"> 
+        <ul class="cart--list" *ngIf="cartData.data.length > 0">
+            <li class="cart--list-item" *ngFor="let cart of cartData.data; let i = index">
+                <div class="cart--list-item-image" [ngStyle]="{'background-image': 'url('+cart.image+')'}"></div>
                 <ul class="cart--list-item-description"> 
-                    <li class="cart--list-item-title">Handmade Stainless Steel Massive Wolf Chain with Odin’s Protection Charm - 50cm / 20in</li>
+                    <li class="cart--list-item-title">{{ cart.name }}</li>
                     <li class="cart--list-item-price">
-                        <span class="price">$19.95</span>
-                        <span class="discounted-price">$29.95</span>
+                        <span class="price">{{ cart.discount_price | currency}}</span>
+                        <span class="discounted-price">{{ cart.price | currency}}</span>
                     </li>
                     <li class="cart--list-item-qty">
                         <ul class="product--count">
-                            <li> - </li>
-                            <li class="item-qty"><input type="number" value="1" class="form-control qty"></li>
-                            <li> + </li>
+                            <li (click)="removeItem(i)"> - </li>
+                            <li class="item-qty"><input type="number" [(ngModel)]="cart.quantity" (ngModelChange)="onChange($event, i )" class="form-control qty"></li>
+                            <li (click)="addItem(i)"> + </li>
                         </ul>
                     </li>
                 </ul>
@@ -35,7 +32,7 @@
         <div class="cart--footer-inner">
             <div class="sub-total">
                 <p>Subtotal</p>
-                <span class="total">$144.95</span>
+                <span class="total">{{ getSubTotal(cartData.data) | currency}}</span>
             </div>
             <div class="cart-btn">
                 <button class="btn view-cart">View cart</button>

@@ -7,18 +7,71 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductPageComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  product: any = {
+    id: 10154,
+    name: "Handmade Stainless Steel Massive Wolf Chain with Odin’s Protection Charm - 50cm / 20in",
+    image: "/assets/images/01.png",
+    quantity: 1,
+    price: 29.95,
+    discount_price: 19.95
   }
 
   cartData: any = {
-    openCart: true,
-    cartItems: 10
+    openCart: false,
+    cartItems: 0,
+    data: []
   }
+
+  constructor() { }
+
+  ngOnInit(): void {
+
+  } 
+
+  getPrice(): any{
+
+    if(this.product.discount_price != 0){
+      return this.product.discount_price * this.product.quantity;
+    }else{
+      return this.product.price * this.product.quantity;
+    }
+
+  } 
  
   getCartData(data: Event) {
     this.cartData = data;
+  }
+
+  removeItem(){
+    (this.product.quantity != 1)? this.product.quantity-- : ""; 
+  }
+
+  addItem(){
+    this.product.quantity++;
+  }
+
+  onChange(value: any) {
+    (this.product.quantity == 0)?  setTimeout(() => { this.product.quantity = 1 }, 100) : "";
+  }
+  
+  addToCart(){
+ 
+    if(this.cartData.data.filter((x: any) => x.id === this.product.id ).length == 0){  
+      this.cartData.data.push(Object.assign({}, this.product)); 
+      
+    }else{
+
+      this.cartData.data.filter((x: any, i: number) => {
+        if(x.id === this.product.id ){
+          x.quantity = x.quantity + this.product.quantity;
+        }
+      }) 
+      
+    } 
+    this.cartData.openCart = true;
+    this.product.quantity = 1;
+    this.cartData.cartItems = this.cartData.data.length; 
+ 
   }
 
 }
