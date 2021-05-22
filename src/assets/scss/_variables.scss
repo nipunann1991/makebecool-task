@@ -1,15 +1,18 @@
 // -----------------------------------------------------------------------------
 // This file contains all application-wide Sass variables.
 // -----------------------------------------------------------------------------
- 
+
  
 /// Main brand colours
 $base-color: #202020;
 $base-red: #CC0000;
 $white: #ffffff;
- 
+
 /// Code (monospace) font sizes
 $base-font-size: 1.6rem;
+
+///Other
+$cart-width: 35rem;
  
 /// Breakpoints
 /// using https://github.com/at-import/breakpoint

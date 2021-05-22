@@ -5,14 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductPageComponent } from './pages/product-page/product-page.component';
 import { HeaderComponent } from './component/header/header.component';
-import { HomePageComponent } from './pages/home-page/home-page.component'; 
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { CartComponent } from './component/cart/cart.component'; 
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductPageComponent,
     HeaderComponent,
-    HomePageComponent, 
+    HomePageComponent,
+    CartComponent, 
   ],
   imports: [
     BrowserModule,

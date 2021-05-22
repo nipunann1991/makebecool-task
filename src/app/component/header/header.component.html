@@ -22,14 +22,14 @@
                         <img src="/assets/images/svg/search.svg" alt="">
                     </a>
                 </li>
-                <li class="cart">
+                <li class="cart" (click)="toggleCart()">
                     <a routerLink="/">
-                        <span class="cart--badge">0</span>
+                        <span class="cart--badge">{{cartData.cartItems}}</span>
                         <img src="/assets/images/svg/shopping.svg" alt="">
                     </a>
                 </li> 
             </ul>
         </div>
-
+         
     </div>
 </div>

@@ -1,5 +1,17 @@
 @import "/src/styles.scss";
 
+.page{
+    left: 0;
+    height: 100vh;
+    @include transition(all 0.4s ease);
+    transform: translateX(0);
+
+    &.opened{ 
+        transform: translateX(-$cart-width);
+        overflow: hidden;
+    }
+
+}
 .product{ 
     padding-bottom: 5rem;
     $self: &; 

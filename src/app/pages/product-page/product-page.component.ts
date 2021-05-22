@@ -12,4 +12,13 @@ export class ProductPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  cartData: any = {
+    openCart: false,
+    cartItems: 10
+  }
+ 
+  getCartData(data: Event) {
+    this.cartData = data;
+  }
+
 }
