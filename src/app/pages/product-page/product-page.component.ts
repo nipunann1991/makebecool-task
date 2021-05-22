@@ -25,7 +25,13 @@ export class ProductPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+   
+    if(localStorage.getItem("cartData") != null){
+      this.cartData.data = JSON.parse(localStorage.getItem("cartData") || '{}')
+    }
 
+    this.cartData.cartItems = this.cartData.data.length; 
+  
   } 
 
   getPrice(): any{
@@ -68,6 +74,8 @@ export class ProductPageComponent implements OnInit {
       }) 
       
     } 
+
+    localStorage.setItem("cartData", JSON.stringify(this.cartData.data));
     this.cartData.openCart = true;
     this.product.quantity = 1;
     this.cartData.cartItems = this.cartData.data.length; 

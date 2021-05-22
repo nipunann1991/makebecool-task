@@ -37,10 +37,12 @@ export class CartComponent implements OnInit {
 
   addItem(index: number){
     this.cartData.data[index].quantity++;
+    this.setToLocalStorage();
   }
 
   onChange(value: any, index: any) {
     (value == 0)? this.removeItemOnZero(index) : "";
+    this.setToLocalStorage();
   }
 
   removeItemOnZero(index: any){
@@ -49,6 +51,12 @@ export class CartComponent implements OnInit {
       this.cartData.openCart = false;
       this.cartData.cartItems = this.cartData.data.length; 
     }
+
+    this.setToLocalStorage();
+  }
+
+  setToLocalStorage(){
+    localStorage.setItem("cartData", JSON.stringify(this.cartData.data));
   }
   
 
